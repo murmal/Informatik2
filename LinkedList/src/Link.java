@@ -6,16 +6,14 @@ public class Link {
 	public Link next = null;
 	public Link previous = null;
 	public String data = null;
-	int zaehler = 0;
+	
 	
 	public Link (String data){
 		this.data = data;
-		zaehler();
+	
 	}
 	
-	public void zaehler(){
-		zaehler++;
-	}
+	
 	
 	public void display(){
 		System.out.println(data);
@@ -27,15 +25,17 @@ public class Link {
 		
 		LinkedList list = new LinkedList();
 		
-		list.addFirst("eingeschobener Link1");
-		list.addFirst("eingeschobener Link2");
-		list.addLast("neuestes Element");
-		list.addFirst("eingeschobener Link3");
-		list.addFirst("ältestes Element");
-		list.add(1, "neues ältestes Element");
+		list.addFirst("erstes Element");
+		list.addLast("addLast");
+		list.addLast("addLast1");
+		list.add(1, "eingeschobenes Element");
+		list.addLast("wirklich letztes Element");
+		list.addLast("wirklich letztes Element");
+		list.addLast("wirklich letztes Element");
 	
+		System.out.println(list.getSize());
 		
-		System.out.println("ende gelände");
+		System.out.println("ende gelÃ¤nde");
 		
 	}
 
