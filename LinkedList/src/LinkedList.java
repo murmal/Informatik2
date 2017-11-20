@@ -3,14 +3,14 @@
 public class LinkedList {
 	
 	public Link lastLink = null; //neuester Link in der Liste
-	public Link firstLink = null; //ältester Link in der Liste
+	public Link firstLink = null; //Ã¤ltester Link in der Liste
 	private int zaehler = 0;
 	
 	
 	
 	
 	
-	//fügt einen Link vor dem ältesten Element hinzu
+	//fÃ¼gt einen Link vor dem Ã¤ltesten Element hinzu
 	public void addFirst(String value){
 	
 		Link newLink = new Link(value);
@@ -31,7 +31,7 @@ public class LinkedList {
 	}
 	
 	
-	//fügt einen Link nach dem neuesten Element hinzu
+	//fÃ¼gt einen Link nach dem neuesten Element hinzu
 	public void addLast(String value){
 		
 		Link newLink = new Link(value);
@@ -58,26 +58,33 @@ public class LinkedList {
 		Link newLink = new Link(value);
 		
 		Link temp = getLink(index);
-		
-		newLink.next = temp.next;
-		
-		newLink.previous = getLink(index);
-		
-		getLink(index).next = newLink;
-		
-		if (newLink.next != null){
-			
-			newLink = temp.next.previous;
+		if (temp == null){
+			System.out.println("Geben sie einen anderen Index ein.");
 		}
-		
 		else{
+			if (temp.next != null){
+				newLink.next = temp.next;
+			}
 			
-			firstLink = newLink;
+			newLink.previous = temp; 
+		
+			
+		
+			if (newLink.next != null){
+			
+				temp.next.previous = newLink; 
+			}
+		
+			else{
+			
+				firstLink = newLink;
+			}
+			temp.next = newLink;
+			if(newLink.previous == null){
+				lastLink = newLink;
+			}
+			zaehler++;
 		}
-		if(newLink.previous == null){
-			lastLink = newLink;
-		}
-		zaehler++;
 		
 	}
 	
@@ -91,6 +98,9 @@ public class LinkedList {
 			if(temp.previous != null){
 			
 				temp = temp.previous;
+			}
+			else {
+				return null;
 			}
 		}
 		return temp;
@@ -118,7 +128,8 @@ public class LinkedList {
 			
 			if (firstLink.previous != null){
 				
-				firstLink.previous = firstLink;
+				firstLink = firstLink.previous;
+				firstLink.next = null;
 			}
 			else { 
 				firstLink = null;
@@ -143,7 +154,8 @@ public class LinkedList {
 			
 			if (lastLink.next!= null){
 				
-				lastLink.next= lastLink;
+				lastLink= lastLink.next;
+				lastLink.previous = null;
 			}
 			else { 
 				firstLink = null;
