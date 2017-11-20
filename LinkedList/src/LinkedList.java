@@ -1,86 +1,95 @@
 
+/** 
+ * Eine Double LinkedList. 
+ */
 
 public class LinkedList {
 	
-	public Link lastLink = null; //neuester Link in der Liste
-	public Link firstLink = null; //ältester Link in der Liste
-	private int zaehler = 0;
+	private Link lastLink = null; 
+	private Link firstLink = null; 
+	private  int zaehler = 0;
 	
 	
 	
 	
 	
-	//fügt einen Link vor dem ältesten Element hinzu
-	public void addFirst(String value){
+
+	/** Fügt der einen Link an die Erste Stelle ein.
+	 * {@param value ist der Inhalt des Links} */
+	public void addFirst(String value) {
 	
 		Link newLink = new Link(value);
 		
-		newLink.previous = firstLink;
-		newLink.next = null;
+		newLink.setPrevious(firstLink);
+		newLink.setNext(null);
 		
-		if(firstLink != null){
-			firstLink.next = newLink;
+		if (firstLink != null) {
+			firstLink.setNext(newLink);
 		}
 		
 		firstLink = newLink;
 		
-		if(newLink.previous == null){
+		if (newLink.getPrevious() == null) {
 			lastLink = newLink;
 		}
 		zaehler++;
 	}
 	
 	
-	//fügt einen Link nach dem neuesten Element hinzu
-	public void addLast(String value){
+
+	/** Fügt der einen Link an die letzten Stelle ein.
+	 * {@param value ist der Inhalt des Links} */
+	public void addLast(String value) {
 		
 		Link newLink = new Link(value);
 		
-		newLink.next = lastLink;
-		newLink.previous = null;
+		newLink.setNext(lastLink);
+		newLink.setPrevious(null);
 		
-		if(lastLink != null){
-			lastLink.previous = newLink;					
+		if (lastLink != null) {
+			lastLink.setPrevious(newLink);					
 		}
 		
 		lastLink = newLink;
 		
-		if(newLink.next == null){
+		if (newLink.getNext() == null) {
 			firstLink = newLink;
 		}
 		zaehler++;
 	}
 	
 	
+	/** Fügt der einen Link an der gewünschten Stelle ein. 
+	 * {@param value ist der Inhalt des Links}
+	 * {@param index ist die Gewünschte Stelle}
+	 * 
+	 * */
 	
-	public void add(int index, String value){	
+	public void add(int index, String value) {	
 		
 		Link newLink = new Link(value);
 		
 		Link temp = getLink(index);
-		if (temp == null){
+		if (temp == null) {
 			System.out.println("Geben sie einen anderen Index ein.");
-		}
-		else{
-			if (temp.next != null){
-				newLink.next = temp.next;
+		} else {
+			if (temp.getNext() != null) {
+				newLink.setNext(temp.getNext());
 			}
 			
-			newLink.previous = temp; 
+			newLink.setPrevious(temp); 
 		
 			
 		
-			if (newLink.next != null){
+			if (newLink.getNext() != null) {
 			
-				temp.next.previous = newLink; 
-			}
-		
-			else{
+				temp.getNext().setPrevious(newLink); 
+			} else {
 			
 				firstLink = newLink;
 			}
-			temp.next = newLink;
-			if(newLink.previous == null){
+			temp.setNext(newLink);
+			if (newLink.getPrevious() == null) {
 				lastLink = newLink;
 			}
 			zaehler++;
@@ -88,58 +97,60 @@ public class LinkedList {
 		
 	}
 	
-	
-	private Link getLink(int index){
+	/** Gibt den Link an der gewünschten Stelle zurück.
+	 * {@param index ist die Gewünschte Stelle}
+	 * {@return gibt den gewünschten Link zurück}*/
+	private Link getLink(int index) {
 		
 		Link temp = firstLink;
 		
-		for (int counter = 1;  counter != index; counter++){
+		for (int counter = 1;  counter != index; counter++) {
 			
-			if(temp.previous != null){
+			if (temp.getPrevious() != null) {
 			
-				temp = temp.previous;
-			}
-			else {
+				temp = temp.getPrevious();
+			} else {
 				return null;
 			}
 		}
 		return temp;
 	}
 	
-	
-	public String get(int index){
+	/** Gibt den Inhalt des Links an der gewünschten Stelle zurück.
+	 * {@param index  ist die Gewünschte Stelle}
+	 * {@return gibt den Inhalt des Links zurück}*/
+	public String get(int index) {
 		
 		Link temp = lastLink;
-		for (int counter = 1;  counter != index; counter++){
+		for (int counter = 1;  counter != index; counter++) {
 			
-			temp = temp.previous;
+			temp = temp.getPrevious();
 			//mit asserts sichern
 			}
 		
-		return temp.data;
+		return temp.getData();
 		
 	}
 	
 	
-	
-	public String removeFirst(){
+	/** Entfernt den ersten Link in der Liste.
+	 * {@return gibt den Inhalt des Links zurück} */
+	public String removeFirst() {
 		
-		if (this.firstLink != null){
+		if (this.firstLink != null) {
 			
-			if (firstLink.previous != null){
+			if (firstLink.getPrevious() != null) {
 				
-				firstLink = firstLink.previous;
-				firstLink.next = null;
-			}
-			else { 
+				firstLink = firstLink.getPrevious();
+				firstLink.setNext(null);
+			} else { 
 				firstLink = null;
 				lastLink = null;
 			}
 			zaehler--;
 			return "Der erste Link wurde entfernt.";
 			
-		}
-		else {
+		} else {
 			return "Es existiert kein Link in der Liste.";
 		}
 		
@@ -147,34 +158,34 @@ public class LinkedList {
 	}
 	
 	
-	
-	public String removeLast(){
+
+	/** Entfernt den letzten Link in der Liste. 
+	 * {@return gibt den Inhalt des Links zurück}*/
+	public String removeLast() {
 		
-		if (this.lastLink != null){
+		if (this.lastLink != null) {
 			
-			if (lastLink.next!= null){
+			if (lastLink.getNext() != null) {
 				
-				lastLink= lastLink.next;
-				lastLink.previous = null;
-			}
-			else { 
+				lastLink = lastLink.getNext();
+				lastLink.setPrevious(null);
+			} else { 
 				firstLink = null;
 				lastLink = null;
 			}
 			zaehler--;
 			return "Der letzte Link wurde entfernt.";
-		}
-		else {
+		} else {
 			return "Es existiert kein Link in der Liste.";
 		}
 	}
 	
 	
-	
-	public int getSize(){
+	/** Gibt die Anzahl der Links in der Liste aus.
+	 * {@return gibt die Größe der Liste zurück}*/
+	public int getSize() {
 		
 		return zaehler;
 		
 	}
 }
-
