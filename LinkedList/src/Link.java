@@ -1,27 +1,77 @@
 
-
+/**Klasse für die Links.
+	 */
 public class Link {
 
 	
-	public Link next = null;
-	public Link previous = null;
-	public String data = null;
+	private Link next = null;
+	private Link previous = null;
+	private String data = null;
 	
-	
-	public Link (String data){
+	/**Konstruktor für Link.
+	 * 
+	 * @param data wird der Wert des Links
+	 */
+	public Link(String data) {
 		this.data = data;
 	
 	}
 	
-	
-	
-	public void display(){
-		System.out.println(data);
+	/** Getter für next.
+	 * 
+	 * 
+	 * @return gibt den Link "next" zurück
+	 */
+	public Link getNext() {
+		return next;
 	}
 
-	
 
-	public static void main(String[]args){
+	/**Setter für next.
+	 * 
+	 * @param next legt den Wert für next fest.
+	 */
+	public void setNext(Link next) {
+		this.next = next;
+	}
+
+
+	/** Getter für previous.
+	 * 
+	 * 
+	 * @return gibt den Link "previous" zurück
+	 */
+	public Link getPrevious() {
+		return previous;
+	}
+
+
+	/**Setter für previous.
+	 * 
+	 * @param previous legt den Wert für previous fest.
+	 */
+	public void setPrevious(Link previous) {
+		this.previous = previous;
+	}
+
+
+	/** Getter für data.
+	 * 
+	 * 
+	 * @return gibt den String "data" zurück
+	 */
+	public String getData() {
+		return data;
+	}
+
+
+
+	
+/**Zum testen.
+ * 
+ * @param args ...
+ */
+	public static void main(String[]args) {
 		
 		LinkedList list = new LinkedList();
 		
