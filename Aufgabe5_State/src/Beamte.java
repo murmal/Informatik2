@@ -1,11 +1,16 @@
 
 public class Beamte extends Einwohner {
-
-	public Beamte (int income){
+	/**
+	 * Konstruktor der Beamten Klasse.
+	 * 
+	 * @param income
+	 *            das Einkommen des Beamten.
+	 */
+	public Beamte(int income) {
 		this.tax = true;
 		this.taxFree = 0;
 		this.socialTax = false;
-		this.income = income;		
+		this.income = income;
 	}
-	
+
 }

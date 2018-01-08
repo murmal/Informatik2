@@ -1,15 +1,28 @@
-
+/*
+ * Automatenimplementierung mit einer Tabelle.
+ */
 public class Table {
-
+	/*
+	 * 
+	 * Übergangstabelle.
+	 */
 	int[][] table = { { 1, 1 }, // Z0
 			{ 2, 3 }, // Z1
 			{ 2, 4 }, // Z2
 			{ 2, 3 }, // Z3
 			{ 2, 3 } // Z4
 	};
-
+	/*
+	 * Aktueller Zustand.
+	 */
 	int currentState = 0;
 
+	/**
+	 * Eingabe für den Automaten.
+	 * 
+	 * @param trigger
+	 *            Entweder 1 oder 0.
+	 */
 	public void trigger(int trigger) {
 		int state = 0;
 
@@ -26,6 +39,9 @@ public class Table {
 
 	}
 
+	/**
+	 * Setzt den Automaten zurück.
+	 */
 	public void clear() {
 
 		currentState = 0;

@@ -1,25 +1,29 @@
 
-/**Klasse für die Links.
+/**
+ * Klasse für die Links.
  * 
- * @param <e> Typ
-	 */
+ * @param <e>
+ *            Typ
+ */
 public class Link<e> {
 
-	
 	private Link<e> next = null;
 	private Link<e> previous = null;
 	private e data = null;
-	
-	/**Konstruktor für Link.
+
+	/**
+	 * Konstruktor für Link.
 	 * 
-	 * @param data wird der Wert des Links
+	 * @param data
+	 *            wird der Wert des Links
 	 */
 	public Link(e data) {
 		this.data = data;
-	
+
 	}
-	
-	/** Getter für next.
+
+	/**
+	 * Getter für next.
 	 * 
 	 * 
 	 * @return gibt den Link "next" zurück
@@ -28,17 +32,18 @@ public class Link<e> {
 		return next;
 	}
 
-
-	/**Setter für next.
+	/**
+	 * Setter für next.
 	 * 
-	 * @param next legt den Wert für next fest.
+	 * @param next
+	 *            legt den Wert für next fest.
 	 */
 	public void setNext(Link<e> next) {
 		this.next = next;
 	}
 
-
-	/** Getter für previous.
+	/**
+	 * Getter für previous.
 	 * 
 	 * 
 	 * @return gibt den Link "previous" zurück
@@ -47,17 +52,18 @@ public class Link<e> {
 		return previous;
 	}
 
-
-	/**Setter für previous.
+	/**
+	 * Setter für previous.
 	 * 
-	 * @param previous legt den Wert für previous fest.
+	 * @param previous
+	 *            legt den Wert für previous fest.
 	 */
 	public void setPrevious(Link<e> previous) {
 		this.previous = previous;
 	}
 
-
-	/** Getter für data.
+	/**
+	 * Getter für data.
 	 * 
 	 * 
 	 * @return gibt den String "data" zurück
@@ -66,15 +72,14 @@ public class Link<e> {
 		return data;
 	}
 
+	/**
+	 * Zum testen.
+	 * 
+	 * @param args
+	 *            ...
+	 */
+	public static void main(String[] args) {
 
-
-	
-/**Zum testen.
- * 
- * @param args ...
- */
-	public static void main(String[]args) {
-		
 		LinkedList<String> list = new LinkedList<String>();
 
 		list.addFirst("erstes Element");
@@ -84,15 +89,11 @@ public class Link<e> {
 		list.addLast("wirklich letztes Element");
 		list.addLast("wirklich letztes Element");
 		list.addLast("wirklich letztes Element");
-	
-		System.out.println(list.getSize());
-		
 
-	
-		
-		
-	LinkedList<Integer> list2 = new LinkedList<Integer>();
-	
+		System.out.println(list.getSize());
+
+		LinkedList<Integer> list2 = new LinkedList<Integer>();
+
 		list2.addFirst(1);
 		list2.addLast(2);
 		list2.addLast(3);
@@ -100,14 +101,9 @@ public class Link<e> {
 		list2.addLast(5);
 		list2.addLast(6);
 		list2.addLast(7);
-	
+
 		System.out.println(list.getSize());
-		
-	
+
 	}
-
-
-
-
 
 }
