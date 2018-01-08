@@ -2,8 +2,14 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/*
+ * Klasse zum Vergleichen der Zugriffszeiten.
+ * 
+ */
 public class Time {
-
+	/*
+	 * Hängt die Zahlen von 0 bis 99.999 hinten in den Collections an.
+	 */
 	public static void hintenAnhaengen() {
 
 		Vector<Integer> vector = new Vector<Integer>();
@@ -196,6 +202,9 @@ public class Time {
 
 	}
 
+	/*
+	 * Hängt die Zahlen von 0 bis 99.999 vorne in den Collections an.
+	 */
 	public static void vorneAnhaengen() {
 
 		Vector<Integer> vector = new Vector<Integer>();
@@ -282,12 +291,8 @@ public class Time {
 
 		ArrayList<Integer> arraylist = new ArrayList<Integer>();
 		ArrayList<Integer> arraylist1 = new ArrayList<Integer>();
-		
-		
-		
+
 		long[] durationInMsec = new long[6];
-		
-		
 
 		for (int e = 0; e < 6; e++) {
 			long start = System.currentTimeMillis();
@@ -297,28 +302,23 @@ public class Time {
 			long end = System.currentTimeMillis();
 			durationInMsec[e] = end - start;
 		}
-		
-		
-			long start1 = System.currentTimeMillis();
-			
-			
-			Stream<Integer> stream = Stream.generate(() -> (int)(Math.random()*9999));
-			
-			arraylist1 = (ArrayList<Integer>) stream.collect(Collectors.toList());
-			
-			
-			long end1 = System.currentTimeMillis();
-			long durationInMsec1 = end1 - start1;
-		
-		
+
+		long start1 = System.currentTimeMillis();
+
+		Stream<Integer> stream = Stream.generate(() -> (int) (Math.random() * 9999));
+
+		arraylist1 = (ArrayList<Integer>) stream.collect(Collectors.toList());
+
+		long end1 = System.currentTimeMillis();
+		long durationInMsec1 = end1 - start1;
 
 	}
 
 	public static void main(String[] args) {
 
-		//hintenAnhaengen();
+		// hintenAnhaengen();
 		System.out.println("------------------------------------------");
-		//vorneAnhaengen();
+		// vorneAnhaengen();
 		zufallArray();
 	}
 

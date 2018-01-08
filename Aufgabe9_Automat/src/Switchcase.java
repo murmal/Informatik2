@@ -1,3 +1,9 @@
+/**
+ * Automatenimplementierung mit Switch-cases.
+ * 
+ * @author katze
+ *
+ */
 public class Switchcase {
 
 	public enum State {
@@ -11,6 +17,12 @@ public class Switchcase {
 		this.state = state;
 	}
 
+	/**
+	 * Eingabe für den Automaten.
+	 * 
+	 * @param trigger
+	 *            Entweder 1 oder 0.
+	 */
 	public void trigger(int trigger) {
 		boolean zero = (trigger == 0);
 		boolean one = (trigger == 1);
@@ -64,6 +76,9 @@ public class Switchcase {
 
 	}
 
+	/**
+	 * Setzt den Automaten zurück.
+	 */
 	public void clear() {
 
 		state = State.Z0;

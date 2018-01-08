@@ -1,11 +1,16 @@
 
 public class Hinterbliebene extends Einwohner {
-
-	public Hinterbliebene (int income){
+	/**
+	 * Konstruktor der Hinterbliebene Klasse.
+	 * 
+	 * @param income
+	 *            das Einkommen des Hinterbliebene.
+	 */
+	public Hinterbliebene(int income) {
 		this.tax = false;
 		this.taxFree = 0;
 		this.socialTax = true;
-		this.income = income;		
+		this.income = income;
 	}
-	
+
 }
